@@ -39,14 +39,21 @@ class BinarySearchTree {
     }
   }
 
-  find(/* data */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  find(data) {
+    let activeNode = this.rootNode;
+    while (activeNode.data !== data) {
+      if (data < activeNode.data) {
+        activeNode = activeNode.left
+      } else {
+        activeNode = activeNode.right;
+      }
+      if (activeNode === null) return null;
+    }    
+    return activeNode;
   }
 
-  has(/* data */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  has(data) {
+    return this.find(data) !== null;
   }
 
   remove(/* data */) {
